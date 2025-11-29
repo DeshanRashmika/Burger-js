@@ -1,0 +1,34 @@
+{
+  "customer_id": 2045,
+  "first_name": "Bob",
+  "last_name": "Smith",
+  "email": "bob.s@shop.com",
+  "billing_address": {
+    "street": "456 Oak Ave",
+    "city": "Springfield",
+    "state": "IL",
+    "zip_code": "62704",
+    "country": "USA"
+  },
+  "shipping_address": {
+    "street": "456 Oak Ave",
+    "city": "Springfield",
+    "state": "IL",
+    "zip_code": "62704",
+    "country": "USA"
+  },
+  "orders": [
+    {
+      "order_id": "ORD-12345",
+      "date": "2025-01-10",
+      "total": 49.99,
+      "status": "Shipped"
+    },
+    {
+      "order_id": "ORD-12346",
+      "date": "2025-02-01",
+      "total": 125.00,
+      "status": "Processing"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "B002",
+    "name": "Spicy Chicken Burger",
+    "price": 11.50,
+    "is_vegetarian": false,
+    "category": "Chicken Burgers",
+    "heat_level": "Medium",
+    "main_toppings": ["Fried Chicken Fillet", "Jalapeño Slaw", "Chipotle Mayo"]
+  },
+  {
+    "id": "B003",
+    "name": "Veggie Delight",
+    "price": 10.99,
+    "is_vegetarian": true,
+    "category": "Vegetarian",
+    "patty_type": "Black Bean",
+    "main_toppings": ["Black Bean Patty", "Avocado Spread", "Pickled Onions"]
+  },
+  {
+    "id": "B004",
+    "name": "Double Bypass Burger",
+    "price": 18.99,
+    "is_vegetarian": false,
+    "category": "Specialty Burgers",
+    "main_toppings": ["Two Beef Patties", "Four Slices of Bacon", "Fried Egg"]
+  }
+]
