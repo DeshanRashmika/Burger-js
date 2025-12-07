@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Burger Shop</title>
-    
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-light">
     <div class="container">
         <div class="row justify-content-center align-items-center min-vh-100">
@@ -25,24 +26,25 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                                <input type="password" class="form-control" id="password" placeholder="Enter password"
+                                    required>
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="rememberMe">
-                                <label class="form-check-label" for="rememberMe" onclick="saveCustomer()">Remember me</label>
+                                <label class="form-check-label" for="rememberMe" onclick="saveCustomer()">Remember
+                                    me</label>
                             </div>
-                            <button type="submit" id="btn-login" class="btn btn-danger w-100" >Login</button>
+                            <button type="submit" id="btn-login" class="btn btn-danger w-100">Login</button>
                         </form>
                         <div class="text-center mt-3">
-                            <p class="text-muted mb-0">Don't have an account? <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></p>
+                            <p class="text-muted mb-0">Don't have an account? <a href="#" class="text-decoration-none"
+                                    data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Register Modal -->
     <div data-aos="zoom-in-up" class="modal fade" id="registerModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -62,11 +64,13 @@
                         </div>
                         <div class="mb-3">
                             <label for="regPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="regPassword" placeholder="Enter password" required>
+                            <input type="password" class="form-control" id="regPassword" placeholder="Enter password"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="regPhone" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="regPhone" placeholder="Enter phone number" required>
+                            <input type="tel" class="form-control" id="regPhone" placeholder="Enter phone number"
+                                required>
                         </div>
                         <button type="submit" class="btn btn-success w-100">Register</button>
                     </form>
@@ -80,24 +84,21 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-           let customers = [];
+        let customers = [];
 
-        // Login form handler
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
-            // Create login data object
+
             const loginData = {
                 email: email,
                 password: password,
                 loginTime: new Date().toLocaleString()
             };
-            
+
             console.log('Login Data:', loginData);
 
-            // Save login to localStorage customers list for persistence in the browser
             try {
                 let saved = JSON.parse(localStorage.getItem('customers') || '[]');
                 saved.push({ id: Date.now(), email: email, password: password, loginTime: new Date().toLocaleString() });
@@ -108,50 +109,41 @@
             }
 
             alert('Login successful! Email: ' + email);
-            // Redirect to main page or process login
         });
 
-        // Register form handler
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            // Get all form values
+
             const name = document.getElementById('regName').value;
             const email = document.getElementById('regEmail').value;
             const password = document.getElementById('regPassword').value;
             const phone = document.getElementById('regPhone').value;
-            
-            // Create customer object
+
             const customer = {
-                id: Date.now(), 
+                id: Date.now(),
                 name: name,
                 email: email,
                 password: password,
                 phone: phone,
                 registeredDate: new Date().toLocaleString()
             };
-            
-            // Add to customers array
+
             customers.push(customer);
-            
-            // Display the data
+
             console.log('New Customer:', customer);
             console.log('All Customers:', customers);
             console.log('Customer JSON:', JSON.stringify(customer, null, 2));
             console.log('All Customers JSON:', JSON.stringify(customers, null, 2));
-            
-            // Save to localStorage (optional - to persist data)
+
             localStorage.setItem('customers', JSON.stringify(customers));
-            
+
             alert('Registration successful! Welcome ' + name + '\n\nCustomer ID: ' + customer.id);
             bootstrap.Modal.getInstance(document.getElementById('registerModal')).hide();
-            
-            // Clear form
+
             document.getElementById('registerForm').reset();
         });
 
-        // Load existing customers from localStorage on page load
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             const savedCustomers = localStorage.getItem('customers');
             if (savedCustomers) {
                 customers = JSON.parse(savedCustomers);
@@ -160,5 +152,5 @@
         });
     </script>
 </body>
+
 </html>
-    

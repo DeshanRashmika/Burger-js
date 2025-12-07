@@ -19,7 +19,7 @@ fetch("components/footer/footer.html").then(res => res.text()).then(data => {
 Home();
 
 function SignIn() {
-    try { event && event.preventDefault(); } catch (e) {  }
+    try { event && event.preventDefault(); } catch (e) { }
 
     const emailEl = document.getElementById('floatingInput') || document.getElementById('email');
     const pwdEl = document.getElementById('floatingPassword') || document.getElementById('password');
@@ -51,6 +51,7 @@ function SignIn() {
 
     alert("You have successfully signed in!");
 
+ window.location.href = 'components/Home/Home.html';
 
     try {
         fetch('http://localhost:3000/save-customer', {
@@ -68,7 +69,8 @@ fetch("components/Home/loginNewCustomer.html").then(res => res.text()).then(data
 });
 
 function placeOrder() {
-
+    
+    
     if (cart.length === 0) return;
 
     const order = {
@@ -78,6 +80,8 @@ function placeOrder() {
         date: new Date().toLocaleString(),
         status: 'Pending'
     };
+
+
 
     orders.push(order);
     cart = [];

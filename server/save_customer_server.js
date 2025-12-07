@@ -1,12 +1,3 @@
-/*
- * Simple Express server to accept POST /save-customer and append/save to json/customers.json
- * Usage:
- * 1) Install dependencies:
- *    npm init -y
- *    npm install express body-parser
- * 2) Start server from the project root: node server/save_customer_server.js
- * 3) From browser side, POST to http://localhost:3000/save-customer with JSON body { email, password }
- */
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -25,7 +16,7 @@ app.post('/save-customer', (req, res) => {
   let customers = [];
   try {
     customers = JSON.parse(fs.readFileSync(customersPath, 'utf8') || '[]');
-  } catch (err) { /* file may not exist */ }
+  } catch (err) { }
 
   const customer = { id: Date.now(), email, password, created: new Date().toISOString() };
   customers.push(customer);
